@@ -18,9 +18,12 @@ Currently Complete Problems from Leetcode:
   11. ZigZagConversion.js (https://leetcode.com/problems/zigzag-conversion/)
   12. RandomizedSet.js (https://leetcode.com/problems/insert-delete-getrandom-o1/)
   
- Not Complete Problems from Leetcode:
+Not Complete Problems from Leetcode:
   1. longestPalindrome.js (https://leetcode.com/problems/longest-palindrome/)
   2. lengthOfLongestSubstring.js (https://leetcode.com/problems/longest-substring-without-repeating-characters/)
   3. climbStairs.js (https://github.com/AlexTing1/data-structure-practice/blob/master/climbStairs.js)
   4. 3sum.js (https://leetcode.com/problems/3sum/)
- 
+
+Other Problems Not Found on Leetcode
+  1. vv.js
+  2.  
