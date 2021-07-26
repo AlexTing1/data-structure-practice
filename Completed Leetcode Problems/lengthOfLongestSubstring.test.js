@@ -83,7 +83,7 @@ describe('Test lengthOfLongestSubstring function', () => {
   });
 
   test('return 5 for input bbaqwer', () => {
-    expect(lengthOfLongestSubstring('bbaqwer')).toBe(5);
+    expect(lengthOfLongestSubstring('bbaqwer')).toBe(6);
   });
 
   test('return 0 for empty string', () => {
@@ -105,5 +105,5 @@ describe('Test lengthOfLongestSubstring function', () => {
   test('return 2 for input string with no same character', () => {
     expect(lengthOfLongestSubstring('au')).toBe(2);
     expect(lengthOfLongestSubstring('asdfhjklewrio')).toBe(13);
-  })
+  });
 })
