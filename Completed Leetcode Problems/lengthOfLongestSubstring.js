@@ -1,5 +1,3 @@
-=
-
 const lengthOfLongestSubstring = function(s) {
   let longestStr = '';
   let currentStr = '';
