@@ -55,5 +55,5 @@ var atoi = function(str) {
   return result;
 }
 
-console.log(atoi('+1'));
+/* console.log(atoi('+1')); */
 exports.atoi = atoi;

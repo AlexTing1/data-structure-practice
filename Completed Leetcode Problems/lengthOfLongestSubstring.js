@@ -47,7 +47,7 @@ var testObj = {
 
 isInTracker('abc', testObj); */
 
-console.log(lengthOfLongestSubstring('bbaqwer'));
+/* console.log(lengthOfLongestSubstring('bbaqwer')); */
 
 exports.checkLetterDuplicates = checkLetterDuplicates;
 exports.isInTracker = isInTracker;

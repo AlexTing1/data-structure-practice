@@ -6,7 +6,6 @@ var merge = function(input) {
   var mid = Math.floor(input.length / 2);
   var left = input.slice(0, mid);
   var right = input.slice(mid);
-
   return mergeHelper(merge(left), merge(right));
 }
 
@@ -24,3 +23,10 @@ var mergeHelper = function(left, right) {
   return array.concat(left.slice()).concat(right.slice())
 }
 
+/* const test1 = [1, 5,3, 67, 4];
+
+const test2 = [4, 3, 2, 6];
+
+console.log(merge(test1)); */
+
+exports.merge = merge;

@@ -75,7 +75,7 @@ let isPalindrome = function(str) {
   return firstHalf === secondHalf
 }
 
-console.log(longestPalindrome('ccc'));
+/* console.log(longestPalindrome('ccc')); */
 exports.isPalindrome = isPalindrome;
 exports.longestPalindrome = longestPalindrome;
 
