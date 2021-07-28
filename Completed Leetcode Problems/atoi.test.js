@@ -15,10 +15,18 @@ describe('Test atoi function', () => {
   });
 
   test('words and 987 to return 987', () => {
-    expect(atoi('words and 987')).toBe(987);
+    expect(atoi('words and 987')).toBe(0);
   });
 
   test('-91283472332 to return -91283472332', () => {
-    expect(atoi('-91283472332')).toBe(-91283472332);
+    expect(atoi('-91283472332')).toBe(-2147483648);
+  });
+
+  test('-+12 to return 0', () => {
+    expect(atoi('-+12')).toBe(0);
+  });
+
+  test('+1 to return 1', () => {
+    expect(atoi('+1')).toBe(1);
   });
 });
