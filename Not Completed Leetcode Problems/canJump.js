@@ -1,3 +1,5 @@
+// SOLVED BUT MUST REDO
+
 var canJump = function(nums) {
   if (nums.length === 1) {
     return true;
