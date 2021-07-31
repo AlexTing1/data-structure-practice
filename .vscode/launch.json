@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/Sorting Algorithms/quick.js"
+      "program": "${workspaceFolder}/Not Completed Leetcode Problems/canJump.js"
     }
   ]
 }
