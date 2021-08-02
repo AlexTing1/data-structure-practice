@@ -24,6 +24,3 @@ function smallestDifference(arrayOne, arrayTwo) {
 	}
 	return result;
 }
-
-// Do not edit the line below.
-exports.smallestDifference = smallestDifference;
