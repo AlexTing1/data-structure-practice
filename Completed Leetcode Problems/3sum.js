@@ -29,5 +29,3 @@ function threeNumberSum(array, targetSum) {
 	}
 	return result;
 }
-
-//console.log(threeSum(test));
