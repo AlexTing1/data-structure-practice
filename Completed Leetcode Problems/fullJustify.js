@@ -2,6 +2,8 @@
 //  OUTPUT - result array
 //  CONSTRAINTS - words.length will be less than maxWidth
 //  EDGE CASES - empty words array
+//  Time Complexity - O(N * M)
+//  Space Complexity -
 var fullJustify = function(words, maxWidth) {
   // init result
   // init current
@@ -16,7 +18,6 @@ var fullJustify = function(words, maxWidth) {
   let result = [];
   let currentPhrase = '';
   for (var i = 0; i < words.length; i++) {
-    //debugger;
     let currentWord = words[i];
     let temp = currentPhrase + currentWord + ' ';
     if (temp.length === maxWidth + 1) {
@@ -37,7 +38,6 @@ var fullJustify = function(words, maxWidth) {
       currentPhrase = currentWord + ' ';
     }
   }
-  debugger;
   if (currentPhrase.length !== 0) {
     currentPhrase = addSpacesLast(currentPhrase.slice(0, currentPhrase.length - 1), maxWidth - currentPhrase.slice(0, currentPhrase.length - 1).length);
     result.push(currentPhrase);
@@ -55,7 +55,6 @@ var addSpaces = function(currentPhrase, spaceCount) {
   }
   var currentPos = 0;
   var result = '';
-  //debugger;
   for (var i = 0; i < spaceCount; i++) {
     spaceArray[currentPos] = spaceArray[currentPos] + ' ';
     if (currentPos + 1 === spaceArray.length) {
@@ -64,7 +63,6 @@ var addSpaces = function(currentPhrase, spaceCount) {
       currentPos++;
     }
   }
-  //debugger;
   for (var i = 0; i < spaceArray.length; i++) {
     var result = result + wordSplit[i] + spaceArray[i];
   }
@@ -87,11 +85,3 @@ var testWords = ["Here","is","an","example","of","text","justification."];
 var maxWidth = 14;
 
 console.log(fullJustify(testWords, maxWidth));
-
-
-/* ["Science  is  what we","understand      well","enough to explain","a  computer.  Art is","everything  else  we","do                  "]
-
-["Science  is  what we","understand      well","enough to explain to","a  computer.  Art is","everything  else  we","do                  "]
-This
-
-'      ' */
