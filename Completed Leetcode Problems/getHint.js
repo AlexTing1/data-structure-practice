@@ -11,6 +11,8 @@
 //  Hashes and maps - use it to track guessTracker
 //  Heaps - NA
 //  Arrays - only need arrays
+//  Time Complexity - O(N)
+//  Space Complexity - ?
 var getHint = function(secret, guess) {
   //  init cowCount
   //  init BullCount

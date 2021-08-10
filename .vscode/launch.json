@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/Not Completed Leetcode Problems/getHint.js"
+      "program": "${workspaceFolder}/Not Completed Leetcode Problems/countSmaller.js"
     }
   ]
 }
