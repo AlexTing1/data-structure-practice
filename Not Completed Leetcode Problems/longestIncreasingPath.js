@@ -44,6 +44,10 @@ var longestIncreasingPath = function(matrix) {
       path1 = trackerObj[[coord[0] + 1, coord[1]]] + currentLength;
     } else {
       path1 = checkPath([coord[0] + 1, coord[1]], currentLength, matrix[coord[0]][coord[1]])
+      if (coord[0] + 1 < matrix.length && coord[0] + 1 >= 0 && coord[1] >= 0 && coord[1] < matrix[coord[0]].length) {
+        trackerObj[[coord[0] + 1, coord[1]]] = path1;
+      }
+
     }
 
     //check i - 1
@@ -51,6 +55,9 @@ var longestIncreasingPath = function(matrix) {
       path2 = trackerObj[[coord[0] - 1, coord[1]]] + currentLength;
     } else {
       path2 = checkPath([coord[0] - 1, coord[1]], currentLength, matrix[coord[0]][coord[1]])
+      if (coord[0] - 1 < matrix.length && coord[0] - 1>= 0 && coord[1] >= 0 && coord[1] < matrix[coord[0]].length) {
+        trackerObj[[coord[0] - 1, coord[1]]] = path2;
+      }
     }
 
     //check j + 1
@@ -59,6 +66,9 @@ var longestIncreasingPath = function(matrix) {
       path3 = trackerObj[[coord[0], coord[1] + 1]] + currentLength;
     } else {
       path3 = checkPath([coord[0], coord[1] + 1], currentLength, matrix[coord[0]][coord[1]])
+      if (coord[0]  < matrix.length && coord[0] >= 0 && coord[1] + 1>= 0 && coord[1] + 1< matrix[coord[0]].length) {
+        trackerObj[[coord[0], coord[1] + 1]] = path3;
+      }
     }
 
     //check j - 1
@@ -68,6 +78,9 @@ var longestIncreasingPath = function(matrix) {
       path4 = trackerObj[[coord[0], coord[1] - 1]] + currentLength;
     } else {
       path4 = checkPath([coord[0], coord[1] - 1], currentLength, matrix[coord[0]][coord[1]])
+      if (coord[0] < matrix.length && coord[0] >= 0 && coord[1] - 1 >= 0 && coord[1] - 1 < matrix[coord[0]].length) {
+        trackerObj[[coord[0], coord[1] - 1]] = path4;
+      }
     }
 
 
