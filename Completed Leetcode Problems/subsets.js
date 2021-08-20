@@ -19,7 +19,7 @@ var subsets = function(nums) {
     result.push(currentSet);
     counter++;
   }
-  debugger;
+  //debugger;
   return result;
 }
 
