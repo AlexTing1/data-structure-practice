@@ -1,3 +1,0 @@
-var numberOfSteps = function(num) {
-
-}
