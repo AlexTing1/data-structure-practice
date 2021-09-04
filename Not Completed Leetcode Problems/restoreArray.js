@@ -3,39 +3,33 @@ var restoreArray = function(adjacentPairs) {
 
   var helper = function(adjacentPairs) {
     debugger;
-
+    var temp = [];
 
     if (adjacentPairs.length <= 1) {
       return adjacentPairs;
     }
-    var temp = [adjacentPairs[0]];
+    var firstPair = adjacentPairs[0];
 
     for (var i = 1; i < adjacentPairs.length; i++) {
       var current = adjacentPairs[i];
-      var temp2 = [];
-      for (var j = 0; j < temp.length; j++) {
-        var checkCurrent = temp[j];
-        if (current[0] === checkCurrent[checkCurrent.length - 1]) {
-          checkCurrent.push(current[1]);
-          break;
-        } else if (current[1] === checkCurrent[checkCurrent.length - 1]) {
-          checkCurrent.push(current[1]);
-          break;
-        } else if (current[0] === checkCurrent[0]) {
-          checkCurrent.unshift(current[1]);
-          break;
-        } else if (current[1] === checkCurrent[0]) {
-          checkCurrent.unshift(current[0]);
-          break;
-        } else {
-          temp2.push(current)
-        }
+      if (current[0] === firstPair[firstPair.length - 1]) {
+        //firstPair.pop();
+        firstPair.push(current[1]);
+      } else if (current[1] === firstPair[0]) {
+        //firstPair.shift();
+        firstPair.unshift(current[0])
+      } else if (current[0] === firstPair[0]) {
+        firstPair.unshift(current[1]);
+      } else if (current[1] === firstPair[firstPair.length - 1]) {
+        firstPair.push(current[0]);
+      } else {
+        temp.push(current);
       }
-      temp = temp.concat(temp2);
     }
+
+    temp.unshift(firstPair);
     return helper(temp);
   }
-
 
   return helper(adjacentPairs)[0];
 }
