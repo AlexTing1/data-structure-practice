@@ -1,0 +1,3 @@
+var accountsMerge = function(accounts) {
+
+};
