@@ -1,44 +1,41 @@
 var exist = function(board, word) {
-  var history = {};
-  var helper = function(board, xCoord, yCoord, currentWord) {
-    if (currentWord === word) {
+
+  var helper = function(board, xCoord, yCoord, word) {
+    if (word.length === 0) {
       return true;
     }
 
-    if (xCoord < 0 || xCoord >= board[0].length) {
+    if (xCoord < 0 || xCoord >= board[0].length || yCoord < 0 || yCoord >=board.length) {
+      return false;
+    }
+    var firstLetter = word[0];
+    var currentLetter = board[yCoord][xCoord];
+
+    if (firstLetter !== currentLetter) {
       return false;
     }
 
-    if (yCoord < 0 || yCoord >= board.length) {
-      return false;
-    }
+    var char = board[yCoord][xCoord];
 
     board[yCoord][xCoord] = '-';
+    word = word.slice(1);
 
-    if (board[yCoord][xCoord] === letterToFind) {
-      currentWord = currentWord.slice(1);
-    } else {
-      return false;
-    }
+    var up = helper(board, xCoord, yCoord - 1, word);
+    var down = helper(board, xCoord, yCoord + 1, word);
+    var right = helper(board, xCoord + 1, yCoord, word);
+    var left = helper(board, xCoord - 1, yCoord, word);
 
-
-    var up = helper(board, xCoord, yCoord - 1, currentWord);
-    var down = helper(board, xCoord, yCoord + 1, currentWord);
-    var right = helper(board, xCoord + 1, yCoord, currentWord);
-    var left = helper(board, xCoord - 1, yCoord, currentWord);
-
+    board[yCoord][xCoord] = char;
     return up || down || right || left;
+
   }
 
   for (var i = 0; i < board.length; i++) {
     for (var j = 0; j < board[i].length; j++) {
-      var current = board[i][j];
-      if (current === word[0]) {
-        //execute helper function
-        var testCase = helper(board, j, i, words);
-        if (testCase) {
-          return true;
-        }
+      var currentBoardPiece = board[i][j];
+
+      if (currentBoardPiece === word[0] && helper(board, j, i, word)) {
+        return true;
       }
     }
   }
