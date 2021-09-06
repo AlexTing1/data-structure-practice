@@ -1,0 +1,3 @@
+var simplifyPath = function(path) {
+
+};
