@@ -13,13 +13,16 @@ var canAttendMeetings = function(intervals) {
       return true;
     }
   }
+  intervals = intervals.sort((a, b) => (a[0] - b[0]));
 
-  for (var i = 0; i < intervals.length; i++) {
-    for (var j = i + 1; j < intervals.length; j++) {
-      if (!checkOverlap(intervals[i], intervals[j])) {
-        return false
-      }
+  for (var i = 0; i < intervals.length - 1; i++) {
+    var current = intervals[i];
+    var next = intervals[i + 1];
+
+    if(!checkOverlap(current, next)) {
+      return false;
     }
   }
+
   return true;
 };
