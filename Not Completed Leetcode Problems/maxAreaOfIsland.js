@@ -1,3 +1,0 @@
-var maxAreaOfIsland = function(grid) {
-
-};
