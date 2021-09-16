@@ -1,3 +1,0 @@
-var gameOfLife = function(board) {
-
-};
