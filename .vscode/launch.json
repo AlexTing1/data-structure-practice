@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/not Completed Leetcode Problems/countSubstrings.js"
+      "program": "${workspaceFolder}/Not Completed Leetcode Problems/countSubstrings.js"
     }
   ]
 }
