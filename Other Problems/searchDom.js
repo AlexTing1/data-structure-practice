@@ -6,7 +6,7 @@ function getByClassName(root, className) {
     if (node.className === className) {
       result.push(node);
     }
-    result.push(node);
+    //result.push(node);
     for (var i = 0; i < node.children.length; i++) {
       var child = node.children[i];
       helper(child);

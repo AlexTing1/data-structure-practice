@@ -1,18 +1,66 @@
+const { JSDOM } = require("jsdom");
 const { document: document2 } = new JSDOM(`
-<div class=”a" id=”a-1”>
-  <div class=”b" id=”b-1”>
-    <div class=”c" id=”c-1”/>
-    <div class=”c" id=”c-2”/>
-  </div>
-  <div class=”c" id=”c-3”/>
+<div class="a" id="a-1">
+    <div class="b" id="b-1">
+        <div class="c" id="c-1">
+        </div>
+        <div class="c" id="c-2">
+        </div>
+    </div>
+    <div class="c" id="c-3">
+    </div>
 </div>
 `).window;
 
 function getByClassnameHierarchy(root, classNames) {
-	// todo
+  var result = [];
+  var map = classNames.split('>');
+  var path = [root.className];
+  var helper = function(node, path) {
+
+    debugger
+    if ((map.length === 1 && node.className === map[0]) || checkMapPath(map, path)) {
+      result.push(node);
+    }
+
+    for (var i = 0; i < node.children.length; i++) {
+      var child = node.children[i];
+      path.push(child.className);
+      helper(child, path);
+      path.pop();
+    }
+  }
+
+  helper(root, path);
+  return result;
 }
 
-const root2 = document2.getElementById('root2');
+function checkMapPath(map, path) {
+  for (var i = 0; i < path.length; i++) {
+    if (map[0] === path[i]) {
+      var temp = path.slice(i);
+      if (check2(temp, map)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function check2(temp, map) {
+  if (temp.length !== map.length) {
+    return false
+  }
+  for (var i = 0; i < temp.length; i++) {
+    if (temp[i] !== map[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const getIds = (elements=[]) => Array.from(elements).map(x => x.id);
+const root2 = document2.getElementById('a-1');
 
 console.log('actual: ', getIds(getByClassnameHierarchy(root2, 'a>b')));
 console.log(`a>b expected:` , `['b-1']`, '\n');
