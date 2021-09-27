@@ -17,8 +17,6 @@ function getByClassnameHierarchy(root, classNames) {
   var map = classNames.split('>');
   var path = [root.className];
   var helper = function(node, path) {
-
-    debugger
     if ((map.length === 1 && node.className === map[0]) || checkMapPath(map, path)) {
       result.push(node);
     }
