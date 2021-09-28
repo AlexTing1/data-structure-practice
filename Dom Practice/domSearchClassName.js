@@ -15,9 +15,41 @@ const { document: document2 } = new JSDOM(`
 function getByClassnameHierarchy(root, classNames) {
   //todo
   var path = classNames.split('>');
+  var result = [];
+  var currentPath = [root.className];
 
+  function helper(node, currentPath) {
+    if ((path.length === 1 && path[0] === node.className) || checkPath(path, currentPath)) {
+      result.push(node);
+    }
+
+    for (var i = 0; i < node.children.length; i++) {
+      var child = node.children[i];
+      currentPath.push(child.className);
+      helper(child, currentPath);
+      currentPath.pop();
+    }
+  }
+
+  helper(root, currentPath);
+  return result;
 }
 
+function checkPath(map, currentPath) {
+  for (var i = 0; i < currentPath.length; i++) {
+    var current = currentPath[i];
+    if (current === map[0]) {
+      if (checkPath2(map, currentPath.slice(i))) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function checkPath2(map, currentPath) {
+  return JSON.stringify(map) === JSON.stringify(currentPath);
+}
 
 const getIds = (elements=[]) => Array.from(elements).map(x => x.id);
 const root2 = document2.getElementById('a-1');
