@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/Dom Practice/domSearchClassName.js"
+      "program": "${workspaceFolder}/Other Problems/sharpnessValue.js"
     }
   ]
 }
