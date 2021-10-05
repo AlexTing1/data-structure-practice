@@ -1,0 +1,3 @@
+var compress = function(chars) {
+
+};
