@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/Other Problems/sharpnessValue.js"
+      "program": "${workspaceFolder}/Not Completed Leetcode Problems/searchRotated.js"
     }
   ]
 }

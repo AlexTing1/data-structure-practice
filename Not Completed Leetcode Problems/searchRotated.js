@@ -1,20 +1,23 @@
 var search = function(nums, target) {
-  var indexFlip = 0;
-  var prev = nums[0];
+  if (nums.length === 0) return -1;
 
-  for (var i = 1; i < nums.length; i++) {
-    var current = nums[i];
-    if (current === target) {
-      return i;
-    }
+  var index = -1,
+    head = 0,
+    tail = nums.length - 1,
+    mid;
 
-    if (prev > current) {
-      indexFlip = current;
+  while (head <= tail) {
+    mid = Math.floor((head + tail) / 2);
+    if (nums[mid] === target) {
+      index = mid;
       break;
+    } else if ((nums[head] <= target && target < nums[mid]) ||
+               (nums[head] > nums[mid] && (nums[head] <= target || target < nums[mid]))) {
+      tail = mid - 1;
+    } else {
+      head = mid + 1;
     }
-
-    prev = current;
   }
 
-
+  return index;
 };
