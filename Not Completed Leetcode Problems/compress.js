@@ -1,13 +1,14 @@
 var compress = function(chars) {
-  var pointer = 0;
-  var indexer = 1;
+  var index = 1;
+  var firstLetter = chars[0];
+  var count = 1;
+  var result = [];
 
-  if (char.length === 1) {
-    return 1;
+  if (chars.length === 1) {
+    return chars;
   }
 
-  while (indexer < chars.length) {
+  while (index < chars.length) {
 
   }
-
 };

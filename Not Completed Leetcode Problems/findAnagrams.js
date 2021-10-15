@@ -10,11 +10,13 @@ var isSameAnagram = function(str1, str2) {
 
 var findAnagrams = function(s, p) {
   var result = [];
+  var tracker = {};
   var shortLength = p.length;
-  for (var i = 0; i + shortLength < s.length; i++) {
+  for (var i = 0; i + shortLength <= s.length; i++) {
     var current = s.slice(i, i + shortLength);
-    if (isSameAnagram(current, p)) {
+    if (tracker[current] !== undefined || isSameAnagram(current, p)) {
       result.push(i);
+      tracker[current] = 1;
     }
   }
 
