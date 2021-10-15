@@ -1,3 +1,0 @@
-var findShortestSubArray = function(nums) {
-
-};
