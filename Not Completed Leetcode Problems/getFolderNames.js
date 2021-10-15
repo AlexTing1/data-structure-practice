@@ -9,12 +9,13 @@ var getFolderNames = function(names) {
       tracker[current] = 1;
     } else {
       var count = 1;
-      var file = current + ` (${count})`;
+      var file = current + `(${count})`;
       while (tracker[file] !== undefined) {
         count++;
-        file = current + ` (${count})`;
+        file = current + `(${count})`;
       }
       result.push(file);
+      tracker[file] = 1;
     }
   }
   return result;
