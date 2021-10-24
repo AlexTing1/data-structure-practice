@@ -1,28 +1,18 @@
 var maxArea = function(h, w, horizontalCuts, verticalCuts) {
-  horizontalCuts.unshift(0);
-  //debugger;
-  horizontalCuts.push(h);
-  verticalCuts.unshift(0);
-  verticalCuts.push(w);
+  horizontalCuts = [0, ...horizontalCuts.sort((a, b) => a - b), h];
+  verticalCuts = [0, ...verticalCuts.sort((a, b) => a - b), w];
 
-  var maxVertical = 0;
-  var maxHorizontal = 0;
-
-  for (var i = 0; i < verticalCuts.length - 1; i++) {
-    var difference = verticalCuts[i + 1] - verticalCuts[i];
-    if (difference > maxVertical) {
-      maxVertical = difference;
-    }
-  }
+  let horMax = 1;
+  let vertMax = 1;
 
   for (var i = 0; i < horizontalCuts.length - 1; i++) {
-    var difference = horizontalCuts[i + 1] - horizontalCuts[i];
-    if (difference > maxHorizontal) {
-      maxHorizontal = difference;
-    }
+    horMax = Math.max(horMax, horizontalCuts[i + 1] - horizontalCuts[i]);
   }
 
-  return (BigInt(maxHorizontal) * BigInt(maxVertical)) % 1000000007n;
+  for (var i = 0; i < verticalCuts.length - 1; i++) {
+    vertMax = Math.max(vertMax, verticalCuts[i + 1] - verticalCuts[i]);
+  }
+
+  return ( BigInt(vertimax) *  BigInt(horimax)) % 1000000007n
 };
 
-console.log(maxArea(5, 4, [1,2,4], [1,3]));
