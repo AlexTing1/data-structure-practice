@@ -1,24 +1,26 @@
+//add rank to calls
+//seperate call and caller
 class CallCenter {
   avaliableRespondents = [];
   avaliableManagers = [];
   avaliableDirectors = [];
   callQueue = [];
 
-  dispatchCall(call) {
+  dispatchCall(Call call) {
     let callToHandle = call;
     if (callQueue.length !== 0) {
       callQueue.push(call);
       callToHandle = callQueue.shift();
     }
 
-    if (avaliableRespondents.length !== 0) {
+    if (avaliableRespondents.length !== 0 && callToHandle.getRank() === 0) {
       const avaliableRespondent = avaliableRespondent.shift();
       //assign call to avaliable
       avaliableRespondent.handleCallAsRespondent(callToHandle);
-    } else if (avaliableManagers.length !== 0) {
+    } else if (avaliableManagers.length !== 0 && callToHandle.getRank() <= 1) {
       const avaliableManager = avaliableManager.shift();
       avaliableManager.handleCallAsManager(callToHandle);
-    } else if (avaliableDirectors.length !== 0) {
+    } else if (avaliableDirectors.length !== 0 && callToHandle.getRank() <= 2) {
       const avaliableDirector = avaliableDirector.shift();
       avaliableDirector.handleCallAsDirector(callToHandle);
     } else {
@@ -29,17 +31,33 @@ class CallCenter {
 }
 
 class Call {
-  constructor(name, number, problem) {
+  constructor(name, number, rank) {
     this.name = name;
     this.number = number;
-    this.problem = problem;
+    this.rank = rank;
   }
 
-  startCall() {
+  reply(message) {
 
   }
 
-  endCall() {
+  getRank() {
+    return this.rank
+  }
+
+  setRank(rank) {
+    this.rank = rank;
+  }
+
+  incrimentRank() {
+    this.rank = this.rank + 1;
+  }
+
+  decreaseRank() {
+    this.rank = this.rank - 1;
+  }
+
+  disconnect() {
 
   }
 }
