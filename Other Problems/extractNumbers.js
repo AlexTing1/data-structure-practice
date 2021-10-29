@@ -3,14 +3,20 @@ const extractNumbers = function(input) {
   for (var i = 0; i < input.length; i++) {
     const currentStr = input[i];
     let num = '';
-    for (var i = 0; i < currentStr.length; i++) {
-      const currentLetter = currentStr[i];
-      if (parseInt(currentLetter) !== NaN) {
+    for (var j = 0; j < currentStr.length; j++) {
+      let currentLetter = currentStr[j];
+      debugger;
+      if (!isNaN(parseInt(currentLetter))) {
         num += currentLetter;
       } else {
-        result.push(parseInt(num));
+        if (num !== '') {
+          result.push(parseInt(num));
+        }
         num = '';
       }
+    }
+    if (num !== '') {
+      result.push(parseInt(num));
     }
   }
   return result;
