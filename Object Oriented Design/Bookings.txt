@@ -1,0 +1,60 @@
+Questions
+1. How should Hotels be organized
+  Brand + location
+2. How should Hotels be grouped by Location? GPS Coordinates? Country? City?
+3. How should Rooms be classified?
+  Need to distigusigh VIP Rooms
+4. should we differentiate between Hotels, Motels, Inns?
+    What are the difference exactly?
+5. Should we create a notable location category? ex. Seaside, airport, beach, mountain, city, etc.
+6. What do we do about Hotels in forbidden locations?
+7. How should we handel cancellations?
+
+Functionality to implement
+Reserve Room
+Cancel Room
+
+types of data structures to look up:
+hashmaps
+arrays
+priority_queue
+Sets
+HashSets
+
+Types of Classes
+1.Rooms
+  string id
+  integer roomNumber
+  array of images: Pictures
+  Object reservedDates
+  integer roomSize
+  integer beds
+  integer guests
+
+2.Hotels
+  filledRooms = Set
+  unfilledRooms = Set;
+  amenities = {} map to allow quick checking
+  notableLocations = {}
+  string id
+  array Pictures
+  array Reviews Objects
+
+3.Guest
+  Hotel
+  Room number
+  string name
+  string id
+  string startDate
+  string endDate
+  Object Location
+
+4.HotelListings
+  Hotels {locations: [Locations]}
+
+5.Location
+  City
+  Country
+  GPS Coordinates
+  travelAllowed
+  HotelListings {brand: [List of Hotes]}
