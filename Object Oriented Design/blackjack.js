@@ -111,3 +111,22 @@ class BlackJackCard extends Card {
     return this.value >= 11 && this.value <= 13;
   }
 }
+
+class BlackJack extends BlackJackCard{
+
+  score() {
+
+  }
+
+  isBusted() {
+    return score() > 21;
+  }
+
+  is21() {
+    return score() === 21;
+  }
+
+  isBlackJack() {
+
+  }
+}
