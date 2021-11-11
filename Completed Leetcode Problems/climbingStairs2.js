@@ -14,8 +14,6 @@ var climbStairs2 = function(n) {
       return tracker[i];
     }
 
-
-
     tracker[i] = helper(i + 1) + helper(i + 2)
     return tracker[i];
   }
