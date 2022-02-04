@@ -1,3 +1,0 @@
-var spiralOrder = function(matrix) {
-
-};

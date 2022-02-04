@@ -7,6 +7,7 @@
 
   //course: [preqreq]
   var graph = {};
+  var courses = {};
 
   for(var i = 0; i < prerequisites.length; i++) {
     var current = prerequisites[i];
@@ -26,6 +27,15 @@
   debugger;
 
   var startingPoints = Object.keys(graph);
+
+  //remove prereq
+
+  for (var i = 0 ; i < startingPoints.length; i++) {
+    var current = startingPoints[i];
+    if (graph[current] === []) {
+      numCourses = numCourses - 1;
+    }
+  }
 
   for (var i = 0; i < startingPoints.length; i++) {
     var startPoint = startingPoints[i];
